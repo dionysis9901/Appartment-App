@@ -10,7 +10,7 @@ const Appartment = ({
   maxpeople,
   nid,
 }) => {
-  return <div className="appartment"></div>;
+  return <div className="appartment">{}</div>;
 };
 
 export default Appartment;

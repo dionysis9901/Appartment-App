@@ -2,7 +2,7 @@ import React from "react";
 import Appartment from "../appartment";
 const Posts = ({ postsData }) => {
   if (postsData === null) {
-    return <div className="awaining">awaiting...</div>;
+    return <div className="awaiting">awaiting...</div>;
   }
 
   return (
