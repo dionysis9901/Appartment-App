@@ -1,8 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Appartment from "./Appartment";
-// import Posts from "./Posts";
-// import { getData } from "../../actions";
+// import {  } from "../../actions";
 
 const withPropsAppartment = (Component) => (props) => {
   const dispatch = useDispatch();

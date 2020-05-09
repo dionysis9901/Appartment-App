@@ -1,4 +1,5 @@
 import React from "react";
+import "./globalStyle/globalStyling.scss";
 import HomePage from "./components";
 
 const App = () => {

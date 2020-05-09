@@ -1,4 +1,5 @@
 import React from "react";
+import "./posts.scss";
 import Appartment from "../appartment";
 const Posts = ({ postsData }) => {
   if (postsData === null) {

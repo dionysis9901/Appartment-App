@@ -1,0 +1,26 @@
+.appartment {
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 4px;
+  width: 400px;
+  margin: 20px 10px;
+  position: relative;
+  box-shadow: 4px 6px 5px 0px rgba(0, 0, 0, 0.75);
+  &__image {
+    width: 100%;
+  }
+  &__title {
+    display: inline-block;
+    width: 60%;
+    margin: 10px 10px;
+    font-weight: bold;
+  }
+  &__btn {
+    position: absolute;
+    right: 5%;
+    bottom: 4%;
+    font-size: 1.6em;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
