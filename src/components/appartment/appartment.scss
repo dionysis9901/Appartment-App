@@ -3,24 +3,59 @@
   border-radius: 4px;
   width: 400px;
   margin: 20px 10px;
-  position: relative;
+
   box-shadow: 4px 6px 5px 0px rgba(0, 0, 0, 0.75);
   &__image {
     width: 100%;
   }
   &__title {
     display: inline-block;
+    position: relative;
     width: 60%;
     margin: 10px 10px;
     font-weight: bold;
   }
   &__btn {
     position: absolute;
-    right: 5%;
-    bottom: 4%;
+    left: 66%;
     font-size: 1.6em;
     background: none;
     border: none;
     cursor: pointer;
   }
+  &__price {
+    font-weight: bold;
+  }
+
+  &__mainInfo {
+    color: #ee4037;
+  }
+
+  &__amenities {
+    overflow: hidden;
+    width: 100%;
+    height: 20px;
+    font-size: 0.9em;
+  }
+
+  &__bookNowBtn {
+    background-color: #ee4037;
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  &__price,
+  &__mainInfo,
+  &__amenities,
+  &__bookNowBtn {
+    margin: 20px 10px;
+  }
+}
+
+.appartmentUncensored {
+  @extend .appartment;
 }
