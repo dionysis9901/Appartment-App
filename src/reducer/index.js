@@ -5,12 +5,12 @@ const reducer = (state = initialState, { type, payload }) => {
     case "GET_DATA":
       return {
         ...state,
-        data: payload.data,
       };
 
     case "GET_DATA_SUCCESS":
       return {
         ...state,
+        data: payload.data,
       };
 
     case "GET_DATA_FAILED":

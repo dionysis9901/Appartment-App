@@ -9,8 +9,9 @@ export const getData = (action$) =>
   action$.pipe(
     ofType("GET_DATA"),
     switchMap(async () => {
+      const proxy = "https://cors-anywhere.herokuapp.com/";
       const url = `https://www.dealbnb.com/en/api/test-list`;
-      const data = await fetch(url).then((res) => res.json());
+      const data = await fetch(proxy + url).then((res) => res.json());
       return getDataSuccess(data);
     }),
     catchError((err) => Promise.resolve(getDataFailed(err.message)))
