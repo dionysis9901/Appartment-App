@@ -1,4 +1,4 @@
-const initialState = { data: null };
+const initialState = { postsData: null };
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -10,7 +10,7 @@ const reducer = (state = initialState, { type, payload }) => {
     case "GET_DATA_SUCCESS":
       return {
         ...state,
-        data: payload.data,
+        postsData: payload.data,
       };
 
     case "GET_DATA_FAILED":

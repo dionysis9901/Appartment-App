@@ -4,14 +4,14 @@ import Posts from "./Posts";
 import { getData } from "../../actions";
 
 const withPropsPosts = (Component) => (props) => {
-  //   const { } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const { postsData } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(getData());
   }, []);
 
-  return <Posts />;
+  return <Posts postsData={postsData} />;
 };
 
 export default withPropsPosts;
