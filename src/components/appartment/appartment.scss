@@ -1,10 +1,10 @@
 .appartment {
   border: 1px solid rgb(255, 255, 255);
   border-radius: 4px;
-  width: 400px;
+  width: 60%;
   margin: 20px 10px;
-
   box-shadow: 4px 6px 5px 0px rgba(0, 0, 0, 0.75);
+
   &__image {
     width: 100%;
   }
@@ -33,7 +33,7 @@
 
   &__amenities {
     overflow: hidden;
-    width: 100%;
+    width: 95%;
     height: 20px;
     font-size: 0.9em;
   }
@@ -58,4 +58,51 @@
 
 .appartmentUncensored {
   @extend .appartment;
+}
+
+.bookNow {
+  @extend .appartment;
+  position: relative;
+  &__deleteBtn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  &__price {
+    margin: 10px 30px;
+
+    &__bold {
+      font-weight: bold;
+    }
+  }
+
+  &__form {
+    margin: 10px 30px;
+    &__dateLabelStart,
+    &__dateLabelEnd,
+    &__guestLabel {
+      font-size: 0.8em;
+      margin: 5px 0;
+    }
+
+    &__dateStart,
+    &__dateEnd,
+    &__guestInput {
+      margin: 5px 0;
+      border: 1px solid rgb(151, 151, 151);
+      border-radius: 2px;
+      padding: 7px 2px;
+    }
+
+    &__seeAvailable {
+      @extend .appartment__bookNowBtn;
+      display: block;
+      margin: auto;
+      margin: 20px auto;
+      font-weight: 500;
+    }
+  }
 }
