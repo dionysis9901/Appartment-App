@@ -79,7 +79,7 @@ const BookNow = ({
         />
         <button
           onClick={getAvailability}
-          className="bookNow__form__seeAvailable"
+          className="bookNow__form__seeAvailable btn"
           type="button"
         >
           See available
@@ -108,7 +108,10 @@ const BookNow = ({
           <span className="right">Total:€{priceWithDiscount}</span>
         </p>
 
-        <button onClick={booked} className="bookNow__success__continueBtn">
+        <button
+          onClick={booked}
+          className="bookNow__success__continueBtn btn--blue"
+        >
           Continue
         </button>
       </div>

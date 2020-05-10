@@ -1,3 +1,5 @@
+@import "../../globalStyle/globalStyling.scss";
+
 .appartment {
   border: 1px solid rgb(185, 185, 185);
   border-radius: 4px;
@@ -8,7 +10,7 @@
 
   @media screen and (max-width: 768px) {
     width: 90%;
-    .appartment__btn {
+    .appartment__viewBtn {
       position: absolute;
       left: 85%;
     }
@@ -28,13 +30,14 @@
       font-weight: bold;
     }
   }
-  &__btn {
+  &__viewBtn {
     position: absolute;
     left: 70%;
     font-size: 1.5em;
     background: none;
     border: none;
     cursor: pointer;
+    outline: none;
   }
 
   &__details {
@@ -48,22 +51,13 @@
       font-weight: bold;
     }
     &__mainInfo {
-      color: #ee4037;
+      color: $base-color;
     }
 
     &__amenities {
       overflow: hidden;
       width: 95%;
       font-size: 0.9em;
-    }
-    &__bookNowBtn {
-      background-color: #ee4037;
-      border: none;
-      color: white;
-      font-weight: 600;
-      padding: 10px 25px;
-      border-radius: 4px;
-      cursor: pointer;
     }
   }
 

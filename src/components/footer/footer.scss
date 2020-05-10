@@ -1,5 +1,6 @@
+@import "../../globalStyle/globalStyling.scss";
 .footer {
-  background-color: #ee4037;
+  background-color: $base-color;
   padding: 10px 0;
   margin-top: 20px;
   &__text {

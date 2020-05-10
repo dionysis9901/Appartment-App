@@ -93,7 +93,7 @@ const Appartment = ({
       <p className="appartment__title">{title}</p>
 
       <button
-        className="appartment__btn"
+        className="appartment__viewBtn"
         onClick={() => setUi({ ...ui, details: !ui.details })}
       >
         <GrView />
@@ -109,7 +109,7 @@ const Appartment = ({
         </p>
         <p className="appartment__details__amenities">{amenities}</p>
         <button
-          className="appartment__details__bookNowBtn"
+          className="appartment__details__bookNowBtn btn"
           onClick={() => {
             dispatch(resetState());
             return setUi({ ...ui, bookNow: true });

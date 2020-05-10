@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+$base-color: #ee4037;
+$second-color: rgb(54, 51, 255);
 * {
   margin: 0;
   padding: 0;
@@ -8,4 +10,19 @@
 html {
   font-family: "Roboto", sans-serif;
   background-color: rgb(245, 245, 245);
+}
+
+.btn {
+  background-color: $base-color;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn--blue {
+  @extend .btn;
+  background-color: $second-color;
 }
