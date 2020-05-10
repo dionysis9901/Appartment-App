@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,700&display=swap");
+.header {
+  text-align: center;
+  margin: 20px 0;
+  &__title {
+    font-size: 1.7em;
+    font-family: "Raleway", sans-serif;
+    cursor: pointer;
+    transition: 0.7s;
+    color: #ee4037;
+    padding: 10px 0;
+  }
+  &__title:hover {
+    transform: scale(1.1);
+    background-color: #ee4037;
+    color: white; padding: 15px 0;
+  }
+}

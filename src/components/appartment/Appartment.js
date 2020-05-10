@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import "./appartment.scss";
+
 import { GrView } from "react-icons/gr";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "./appartment.scss";
+import Moment from "react-moment";
 
 const Appartment = ({
   title,
@@ -17,11 +19,11 @@ const Appartment = ({
 }) => {
   const [config, setConfig] = useState({
     details: false,
-    bookNow: false,
+    bookNow: true,
     value: "",
   });
-  const [startDate, setStartDate] = useState(new Date("2020/04/09"));
-  const [endDate, setEndDate] = useState(new Date("2020/05/09"));
+  const [startDate, setStartDate] = useState(new Date("2020/05/09"));
+  const [endDate, setEndDate] = useState(new Date("2020/05/19"));
 
   if (config.bookNow) {
     return (
@@ -45,6 +47,14 @@ const Appartment = ({
             startDate={startDate}
             endDate={endDate}
             className="bookNow__form__dateStart"
+            popperPlacement="top-end"
+            popperModifiers={{
+              preventOverflow: {
+                enabled: true,
+                escapeWithReference: false,
+                boundariesElement: "viewport",
+              },
+            }}
           />
 
           <p className="bookNow__form__dateLabelEnd"> To </p>
@@ -56,6 +66,13 @@ const Appartment = ({
             startDate={startDate}
             endDate={endDate}
             minDate={startDate}
+            popperModifiers={{
+              preventOverflow: {
+                enabled: true,
+                escapeWithReference: false,
+                boundariesElement: "viewport",
+              },
+            }}
             className="bookNow__form__dateEnd"
           />
           <p className="bookNow__form__guestLabel">Guests</p>
@@ -67,7 +84,13 @@ const Appartment = ({
             }
             className="bookNow__form__guestInput"
           />
-          <button className="bookNow__form__seeAvailable">See available</button>
+          <button
+            onClick={() => console.log(startDate)}
+            className="bookNow__form__seeAvailable"
+            type="button"
+          >
+            See available
+          </button>
         </form>
       </div>
     );
