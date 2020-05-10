@@ -1,5 +1,4 @@
 import React from "react";
-import { FcHome } from "react-icons/fc";
 import "./header.scss";
 
 const Header = () => {

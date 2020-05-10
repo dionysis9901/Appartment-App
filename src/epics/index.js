@@ -1,4 +1,4 @@
-import { switchMap, catchError, map } from "rxjs/operators";
+import { switchMap, catchError } from "rxjs/operators";
 import { ofType } from "redux-observable";
 
 import {

@@ -4,3 +4,10 @@
   justify-content: center;
   align-items: center;
 }
+
+.awaiting {
+  text-align: center;
+  &__text {
+    font-size: 30px;
+  }
+}

@@ -1,9 +1,25 @@
-import React from "react";
-import "./posts.scss";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Appartment from "../appartment";
-const Posts = ({ postsData }) => {
+
+import { getData } from "../../actions";
+
+import "./posts.scss";
+
+const Posts = () => {
+  const { postsData } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getData());
+  }, []);
+
   if (postsData === null) {
-    return <div className="awaiting">awaiting...</div>;
+    return (
+      <div className="awaiting">
+        <p className="awaiting__text">Data Loading...</p>
+      </div>
+    );
   }
 
   return (

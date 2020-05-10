@@ -20,7 +20,6 @@ const BookNow = ({
     priceWithDiscount,
     discount,
     discountPercent,
-    available,
     nights,
     isRendered,
   } = useSelector((state) => state);
