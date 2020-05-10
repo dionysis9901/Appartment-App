@@ -87,30 +87,29 @@ const Appartment = ({
     );
   }
 
-  if (ui.details) {
-    return (
-      <div className="appartmentUncensored">
-        <img className="appartment__image" src={image} alt="Appartment" />
+  return (
+    <div className="appartment">
+      <img className="appartment__image" src={image} alt="Appartment" />
+      <p className="appartment__title">{title}</p>
 
-        <p className="appartment__title">{title}</p>
+      <button
+        className="appartment__btn"
+        onClick={() => setUi({ ...ui, details: !ui.details })}
+      >
+        <GrView />
+      </button>
 
-        <button
-          className="appartment__btn"
-          onClick={() => {
-            return setUi({ ...ui, details: false });
-          }}
-        >
-          <GrView />
-        </button>
-
-        <p className="appartment__price">From {price} € / night</p>
-        <p className="appartment__mainInfo">
+      <div
+        className="appartment__details"
+        style={{ display: ui.details ? "block" : "none" }}
+      >
+        <p className="appartment__details__price">From {price} € / night</p>
+        <p className="appartment__details__mainInfo">
           {maxpeople} Guests • {bathrooms} Bathroom • {bedrooms} Bedrooms
         </p>
-        <p className="appartment__amenities">{amenities}</p>
-
+        <p className="appartment__details__amenities">{amenities}</p>
         <button
-          className="appartment__bookNowBtn"
+          className="appartment__details__bookNowBtn"
           onClick={() => {
             dispatch(resetState());
             return setUi({ ...ui, bookNow: true });
@@ -119,20 +118,6 @@ const Appartment = ({
           Book Now
         </button>
       </div>
-    );
-  }
-
-  return (
-    <div className="appartment">
-      <img className="appartment__image" src={image} alt="Appartment" />
-      <p className="appartment__title">{title}</p>
-
-      <button
-        className="appartment__btn"
-        onClick={() => setUi({ ...ui, details: true })}
-      >
-        <GrView />
-      </button>
     </div>
   );
 };

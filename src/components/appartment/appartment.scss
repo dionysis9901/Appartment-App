@@ -1,9 +1,17 @@
 .appartment {
-  border: 1px solid rgb(255, 255, 255);
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    .appartment__btn {
+      position: absolute;
+      left: 85%;
+    }
+  }
+  border: 1px solid rgb(185, 185, 185);
   border-radius: 4px;
-  width: 60%;
+  width: 50%;
   margin: 20px 10px;
   box-shadow: 4px 6px 5px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgb(248, 248, 248);
 
   &__image {
     width: 100%;
@@ -22,42 +30,42 @@
   }
   &__btn {
     position: absolute;
-    left: 75%;
+    left: 70%;
     font-size: 1.5em;
     background: none;
     border: none;
     cursor: pointer;
   }
-  &__price {
-    font-weight: bold;
-  }
 
-  &__mainInfo {
-    color: #ee4037;
-  }
+  &__details {
+    &__price,
+    &__mainInfo,
+    &__amenities,
+    &__bookNowBtn {
+      margin: 20px 10px;
+    }
+    &__price {
+      font-weight: bold;
+    }
 
-  &__amenities {
-    overflow: hidden;
-    width: 95%;
-    height: 20px;
-    font-size: 0.9em;
-  }
+    &__mainInfo {
+      color: #ee4037;
+    }
 
-  &__bookNowBtn {
-    background-color: #ee4037;
-    border: none;
-    color: white;
-    font-weight: 600;
-    padding: 10px 25px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  &__price,
-  &__mainInfo,
-  &__amenities,
-  &__bookNowBtn {
-    margin: 20px 10px;
+    &__amenities {
+      overflow: hidden;
+      width: 95%;
+      font-size: 0.9em;
+    }
+    &__bookNowBtn {
+      background-color: #ee4037;
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 10px 25px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
   }
 
   &__checkIn,
