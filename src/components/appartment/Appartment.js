@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+import Moment from "react-moment";
+import BookNow from "../bookNow";
+
 import { GrView } from "react-icons/gr";
+import { FcCheckmark } from "react-icons/fc";
+
+import { getAvailable, resetState } from "../../actions";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./appartment.scss";
-import BookNow from "../bookNow";
-import { getAvailable } from "../../actions";
 
 const Appartment = ({
   title,
@@ -17,17 +22,39 @@ const Appartment = ({
   maxpeople,
   nid,
 }) => {
+  const dispatch = useDispatch();
+  const formated = (date) => date.toISOString().slice(0, 10).replace(/-/g, "");
+
   const [ui, setUi] = useState({
     details: false,
     bookNow: false,
     guests: 1,
     startDate: new Date("2020/05/09 GMT"),
     endDate: new Date("2020/05/19 GMT"),
+    booked: false,
   });
 
-  const dispatch = useDispatch();
-  const formated = (date) => date.toISOString().slice(0, 10).replace(/-/g, "");
-
+  if (ui.booked) {
+    return (
+      <div className="appartment">
+        <img className="appartment__image" src={image} alt="Appartment" />
+        <div className="appartment__success__icon">
+          <FcCheckmark />
+        </div>
+        <p className="appartment__title__booked">
+          You have successfully booked:{title}
+        </p>
+        <p className="appartment__checkIn">
+          Check-in:
+          <Moment format="YYYY/MM/DD">{ui.startDate}</Moment>
+        </p>
+        <p className="appartment__checkOut">
+          Check-out:
+          <Moment format="YYYY/MM/DD">{ui.endDate}</Moment>
+        </p>
+      </div>
+    );
+  }
   if (ui.bookNow) {
     return (
       <BookNow
@@ -55,6 +82,7 @@ const Appartment = ({
             )
           )
         }
+        booked={() => setUi({ ...ui, booked: true })}
       />
     );
   }
@@ -68,7 +96,9 @@ const Appartment = ({
 
         <button
           className="appartment__btn"
-          onClick={() => setUi({ ...ui, details: false })}
+          onClick={() => {
+            return setUi({ ...ui, details: false });
+          }}
         >
           <GrView />
         </button>
@@ -81,7 +111,10 @@ const Appartment = ({
 
         <button
           className="appartment__bookNowBtn"
-          onClick={() => setUi({ ...ui, bookNow: true })}
+          onClick={() => {
+            dispatch(resetState());
+            return setUi({ ...ui, bookNow: true });
+          }}
         >
           Book Now
         </button>

@@ -14,11 +14,16 @@
     width: 60%;
     margin: 10px 10px;
     font-weight: bold;
+    &__booked {
+      width: 100;
+      font-weight: bold;
+      margin: 10px 0;
+    }
   }
   &__btn {
     position: absolute;
-    left: 66%;
-    font-size: 1.6em;
+    left: 75%;
+    font-size: 1.5em;
     background: none;
     border: none;
     cursor: pointer;
@@ -54,10 +59,21 @@
   &__bookNowBtn {
     margin: 20px 10px;
   }
+
+  &__checkIn,
+  &__checkOut {
+    margin: 10px 0;
+  }
+
+  &__success {
+    text-align: center;
+    &__icon {
+      text-align: center;
+      font-size: 3em;
+    }
+  }
 }
 
 .appartmentUncensored {
   @extend .appartment;
 }
-
-

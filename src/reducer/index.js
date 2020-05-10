@@ -40,7 +40,6 @@ const reducer = (state = initialState, { type, payload }) => {
       };
 
     case "GET_AVAILABLE__SUCCESS":
-      console.log(payload.info);
       return {
         ...state,
         originalPrice: payload.info.total_price_original,
@@ -55,6 +54,18 @@ const reducer = (state = initialState, { type, payload }) => {
     case "GET_AVAILABLE__FAILED":
       return {
         ...state,
+      };
+
+    case "RESET_STATE":
+      return {
+        ...state,
+        originalPrice: null,
+        priceWithDiscount: null,
+        discount: null,
+        discountPercent: null,
+        available: null,
+        nights: null,
+        isRendered: false,
       };
     default:
       return state;

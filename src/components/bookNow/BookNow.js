@@ -13,6 +13,7 @@ const BookNow = ({
   changeEndDate,
   changeGuestsNum,
   getAvailability,
+  booked,
 }) => {
   const {
     originalPrice,
@@ -108,7 +109,9 @@ const BookNow = ({
           <span className="right">Total:€{priceWithDiscount}</span>
         </p>
 
-        <button className="bookNow__success__continueBtn">Continue</button>
+        <button onClick={booked} className="bookNow__success__continueBtn">
+          Continue
+        </button>
       </div>
     </div>
   );

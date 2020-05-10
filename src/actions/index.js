@@ -26,3 +26,7 @@ export const getAvailableFailed = (message) => ({
   type: "GET_AVAILABLE_FAILED",
   payload: { message },
 });
+
+export const resetState = () => ({
+  type: "RESET_STATE",
+});
