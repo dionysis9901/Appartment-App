@@ -11,6 +11,7 @@ const BookNow = ({
   changeStartDate,
   changeEndDate,
   changeGuestsNum,
+  getAvailability,
 }) => {
   return (
     <div className="bookNow">
@@ -67,11 +68,7 @@ const BookNow = ({
           className="bookNow__form__guestInput"
         />
         <button
-          onClick={() => {
-            console.log(startDate.toISOString().slice(0, 10).replace(/-/g, ""));
-            console.log(endDate.toISOString().slice(0, 10).replace(/-/g, ""));
-            console.log(guests);
-          }}
+          onClick={getAvailability}
           className="bookNow__form__seeAvailable"
           type="button"
         >

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-
+import { useSelector, useDispatch } from "react-redux";
 import { GrView } from "react-icons/gr";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./appartment.scss";
 import BookNow from "../bookNow";
+import { getAvailable } from "../../actions";
 
 const Appartment = ({
   title,
@@ -14,10 +15,8 @@ const Appartment = ({
   bedrooms,
   image,
   maxpeople,
-  getPrice,
   nid,
 }) => {
-
   const [ui, setUi] = useState({
     details: false,
     bookNow: true,
@@ -25,6 +24,9 @@ const Appartment = ({
     startDate: new Date("2020/05/09 GMT"),
     endDate: new Date("2020/05/19 GMT"),
   });
+
+  const dispatch = useDispatch();
+  const formated = (date) => date.toISOString().slice(0, 10).replace(/-/g, "");
 
   if (ui.bookNow) {
     return (
@@ -42,6 +44,16 @@ const Appartment = ({
         }}
         changeGuestsNum={(event) =>
           setUi({ ...ui, guests: event.target.value })
+        }
+        getAvailability={() =>
+          dispatch(
+            getAvailable(
+              nid,
+              formated(ui.startDate),
+              formated(ui.endDate),
+              ui.guests
+            )
+          )
         }
       />
     );

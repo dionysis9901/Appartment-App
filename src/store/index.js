@@ -2,10 +2,10 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { createEpicMiddleware, combineEpics } from "redux-observable";
 import reducer from "../reducer";
 
-import { getData } from "../epics";
+import { getDataEpic, getAvailableEpic } from "../epics";
 
 const configureStore = () => {
-  const epicsArr = [getData];
+  const epicsArr = [getDataEpic, getAvailableEpic];
   const epics = combineEpics(...epicsArr);
   const epicMiddleware = createEpicMiddleware();
   const middleware = [epicMiddleware];

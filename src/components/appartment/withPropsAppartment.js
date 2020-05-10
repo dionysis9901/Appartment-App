@@ -1,7 +1,6 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+
 import Appartment from "./Appartment";
-// import {  } from "../../actions";
 
 const withPropsAppartment = (Component) => ({
   index,
@@ -14,8 +13,6 @@ const withPropsAppartment = (Component) => ({
   maxpeople,
   nid,
 }) => {
-  const dispatch = useDispatch();
-
   return (
     <Appartment
       key={index}
