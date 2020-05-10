@@ -1,5 +1,4 @@
 import React from "react";
-
 import Appartment from "./Appartment";
 
 const withPropsAppartment = (Component) => ({

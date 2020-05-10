@@ -1,11 +1,12 @@
 const initialState = {
   postsData: null,
-  currentNid: null,
   originalPrice: null,
   discount: null,
   discountPercent: null,
   priceWithDiscount: null,
   available: null,
+  nights: null,
+  isRendered: false,
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -34,6 +35,8 @@ const reducer = (state = initialState, { type, payload }) => {
         discount: null,
         discountPercent: null,
         available: null,
+        nights: null,
+        isRendered: false,
       };
 
     case "GET_AVAILABLE__SUCCESS":
@@ -45,6 +48,8 @@ const reducer = (state = initialState, { type, payload }) => {
         discount: payload.info.discount,
         discountPercent: payload.info.discount_percent,
         available: payload.info.is_available,
+        nights: payload.info.nights,
+        isRendered: true,
       };
 
     case "GET_AVAILABLE__FAILED":

@@ -60,49 +60,4 @@
   @extend .appartment;
 }
 
-.bookNow {
-  @extend .appartment;
-  position: relative;
-  &__deleteBtn {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-  &__price {
-    margin: 10px 30px;
 
-    &__bold {
-      font-weight: bold;
-    }
-  }
-
-  &__form {
-    margin: 10px 30px;
-    &__dateLabelStart,
-    &__dateLabelEnd,
-    &__guestLabel {
-      font-size: 0.8em;
-      margin: 5px 0;
-    }
-
-    &__dateStart,
-    &__dateEnd,
-    &__guestInput {
-      margin: 5px 0;
-      border: 1px solid rgb(151, 151, 151);
-      border-radius: 2px;
-      padding: 7px 2px;
-    }
-
-    &__seeAvailable {
-      @extend .appartment__bookNowBtn;
-      display: block;
-      margin: auto;
-      margin: 20px auto;
-      font-weight: 500;
-    }
-  }
-}

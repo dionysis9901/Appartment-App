@@ -19,7 +19,7 @@ const Appartment = ({
 }) => {
   const [ui, setUi] = useState({
     details: false,
-    bookNow: true,
+    bookNow: false,
     guests: 1,
     startDate: new Date("2020/05/09 GMT"),
     endDate: new Date("2020/05/19 GMT"),

@@ -1,5 +1,6 @@
 import React from "react";
 import "./bookNow.scss";
+import { useSelector } from "react-redux";
 import DatePicker from "react-datepicker";
 
 const BookNow = ({
@@ -13,6 +14,15 @@ const BookNow = ({
   changeGuestsNum,
   getAvailability,
 }) => {
+  const {
+    originalPrice,
+    priceWithDiscount,
+    discount,
+    discountPercent,
+    available,
+    nights,
+    isRendered,
+  } = useSelector((state) => state);
   return (
     <div className="bookNow">
       <button onClick={deleteBtn} className="bookNow__deleteBtn">
@@ -75,6 +85,31 @@ const BookNow = ({
           See available
         </button>
       </form>
+
+      <div
+        className="bookNow__success"
+        style={{ display: isRendered ? "block" : "none" }}
+      >
+        <p className="bookNow__success__originalPrice">
+          <span className="left">
+            €{price} X {nights} nights
+          </span>
+          <span className="right">€{originalPrice}</span>
+        </p>
+        <p className="bookNow__success__discount">
+          <span className="left"> {discountPercent}% Discount </span>
+          <span className="right">-€{discount}</span>
+        </p>
+
+        <p className="bookNow__success__finalPrice">
+          <span className="left">
+            €{originalPrice} - €{discount}
+          </span>
+          <span className="right">Total:€{priceWithDiscount}</span>
+        </p>
+
+        <button className="bookNow__success__continueBtn">Continue</button>
+      </div>
     </div>
   );
 };

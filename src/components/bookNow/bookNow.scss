@@ -1,0 +1,75 @@
+@import "../appartment/appartment.scss";
+.bookNow {
+  @extend .appartment;
+  position: relative;
+  &__deleteBtn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  &__price {
+    margin: 10px 30px;
+
+    &__bold {
+      font-weight: bold;
+    }
+  }
+
+  &__form {
+    margin: 10px 30px;
+    &__dateLabelStart,
+    &__dateLabelEnd,
+    &__guestLabel {
+      font-size: 0.8em;
+      margin: 5px 0;
+    }
+
+    &__dateStart,
+    &__dateEnd,
+    &__guestInput {
+      margin: 5px 0;
+      border: 1px solid rgb(151, 151, 151);
+      border-radius: 2px;
+      padding: 7px 2px;
+    }
+
+    &__seeAvailable {
+      @extend .appartment__bookNowBtn;
+      display: block;
+      margin: auto;
+      margin: 20px auto;
+      font-weight: 500;
+      width: 100%;
+    }
+  }
+
+  &__success {
+    &__discount,
+    &__originalPrice,
+    &__finalPrice {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 10px;
+      padding: 4px 0;
+      border-bottom: 1px solid rgb(223, 223, 223);
+      font-size: 0.9em;
+      font-weight: 800;
+    }
+
+    &__discount {
+      color: rgb(76, 151, 151);
+    }
+
+    &__continueBtn {
+      @extend .appartment__bookNowBtn;
+      width: 90%;
+      display: block;
+      margin: 10px auto;
+
+      background-color: rgb(54, 51, 255);
+    }
+  }
+}
