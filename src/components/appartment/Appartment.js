@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 import { GrView } from "react-icons/gr";
-import DatePicker from "react-datepicker";
+
 import "react-datepicker/dist/react-datepicker.css";
 import "./appartment.scss";
-import Moment from "react-moment";
+import BookNow from "../bookNow";
 
 const Appartment = ({
   title,
@@ -17,86 +17,37 @@ const Appartment = ({
   getPrice,
   nid,
 }) => {
-  const [config, setConfig] = useState({
+
+  const [ui, setUi] = useState({
     details: false,
     bookNow: true,
-    value: "",
+    guests: 1,
+    startDate: new Date("2020/05/09 GMT"),
+    endDate: new Date("2020/05/19 GMT"),
   });
-  const [startDate, setStartDate] = useState(new Date("2020/05/09"));
-  const [endDate, setEndDate] = useState(new Date("2020/05/19"));
 
-  if (config.bookNow) {
+  if (ui.bookNow) {
     return (
-      <div className="bookNow">
-        <button
-          onClick={() => setConfig({ ...config, bookNow: false })}
-          className="bookNow__deleteBtn"
-        >
-          X
-        </button>
-        <p className="bookNow__price">
-          € <span className="bookNow__price__bold">{price}</span> / night
-        </p>
-        <form className="bookNow__form">
-          <p className="bookNow__form__dateLabelStart"> From </p>
-
-          <DatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            selectsStart
-            startDate={startDate}
-            endDate={endDate}
-            className="bookNow__form__dateStart"
-            popperPlacement="top-end"
-            popperModifiers={{
-              preventOverflow: {
-                enabled: true,
-                escapeWithReference: false,
-                boundariesElement: "viewport",
-              },
-            }}
-          />
-
-          <p className="bookNow__form__dateLabelEnd"> To </p>
-
-          <DatePicker
-            selected={endDate}
-            onChange={(date) => setEndDate(date)}
-            selectsEnd
-            startDate={startDate}
-            endDate={endDate}
-            minDate={startDate}
-            popperModifiers={{
-              preventOverflow: {
-                enabled: true,
-                escapeWithReference: false,
-                boundariesElement: "viewport",
-              },
-            }}
-            className="bookNow__form__dateEnd"
-          />
-          <p className="bookNow__form__guestLabel">Guests</p>
-          <input
-            type="number"
-            value={config.value}
-            onChange={(event) =>
-              setConfig({ ...config, value: event.target.value })
-            }
-            className="bookNow__form__guestInput"
-          />
-          <button
-            onClick={() => console.log(startDate)}
-            className="bookNow__form__seeAvailable"
-            type="button"
-          >
-            See available
-          </button>
-        </form>
-      </div>
+      <BookNow
+        price={price}
+        startDate={ui.startDate}
+        endDate={ui.endDate}
+        guests={ui.guests}
+        deleteBtn={() => setUi({ ...ui, bookNow: false })}
+        changeStartDate={(date) => {
+          setUi({ ...ui, startDate: date });
+        }}
+        changeEndDate={(date) => {
+          setUi({ ...ui, endDate: date });
+        }}
+        changeGuestsNum={(event) =>
+          setUi({ ...ui, guests: event.target.value })
+        }
+      />
     );
   }
 
-  if (config.details) {
+  if (ui.details) {
     return (
       <div className="appartmentUncensored">
         <img className="appartment__image" src={image} alt="Appartment" />
@@ -105,7 +56,7 @@ const Appartment = ({
 
         <button
           className="appartment__btn"
-          onClick={() => setConfig({ ...config, details: false })}
+          onClick={() => setUi({ ...ui, details: false })}
         >
           <GrView />
         </button>
@@ -118,7 +69,7 @@ const Appartment = ({
 
         <button
           className="appartment__bookNowBtn"
-          onClick={() => setConfig({ ...config, bookNow: true })}
+          onClick={() => setUi({ ...ui, bookNow: true })}
         >
           Book Now
         </button>
@@ -133,7 +84,7 @@ const Appartment = ({
 
       <button
         className="appartment__btn"
-        onClick={() => setConfig({ ...config, details: true })}
+        onClick={() => setUi({ ...ui, details: true })}
       >
         <GrView />
       </button>
