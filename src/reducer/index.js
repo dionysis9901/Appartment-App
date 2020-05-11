@@ -8,16 +8,6 @@ import {
   RESET_STATE,
 } from "../actions";
 
-import {
-  getData,
-  getDataSuccess,
-  getDataFailed,
-  getAvailable,
-  getAvailableSuccess,
-  getAvailableFailed,
-  resetState,
-} from "../actions";
-
 const initialState = {
   postsData: null,
   originalPrice: null,

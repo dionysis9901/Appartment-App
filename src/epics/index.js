@@ -2,6 +2,8 @@ import { ofType } from "redux-observable";
 import { switchMap, catchError } from "rxjs/operators";
 import { proxy, apiList, priceApi } from "./config";
 
+import { GET_DATA, GET_AVAILABLE } from "../actions";
+
 import {
   getDataSuccess,
   getDataFailed,
@@ -13,7 +15,7 @@ const fetch = require("node-fetch");
 
 export const getDataEpic = (action$) =>
   action$.pipe(
-    ofType("GET_DATA"),
+    ofType(GET_DATA),
     switchMap(async () => {
       const data = await fetch(proxy + apiList).then((res) => res.json());
       return getDataSuccess(data);
@@ -23,7 +25,7 @@ export const getDataEpic = (action$) =>
 
 export const getAvailableEpic = (action$) =>
   action$.pipe(
-    ofType("GET_AVAILABLE"),
+    ofType(GET_AVAILABLE),
     switchMap(async ({ payload }) => {
       const data = await fetch(
         proxy +
