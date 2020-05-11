@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 
 import Moment from "react-moment";
 import BookNow from "../bookNow";
+import AppartmentDetails from "../appartmentDetails";
 
 import { GrView } from "react-icons/gr";
 import { FcCheckmark } from "react-icons/fc";
@@ -22,7 +23,6 @@ const Appartment = ({
   maxpeople,
   nid,
 }) => {
-
   const dispatch = useDispatch();
 
   const formated = (date) => date.toISOString().slice(0, 10).replace(/-/g, "");
@@ -55,7 +55,7 @@ const Appartment = ({
       </div>
     );
   }
-  
+
   if (ui.bookNow) {
     return (
       <BookNow
@@ -104,20 +104,17 @@ const Appartment = ({
         className="appartment__details"
         style={{ display: ui.details ? "block" : "none" }}
       >
-        <p className="appartment__details__price">From {price} € / night</p>
-        <p className="appartment__details__mainInfo">
-          {maxpeople} Guests • {bathrooms} Bathroom • {bedrooms} Bedrooms
-        </p>
-        <p className="appartment__details__amenities">{amenities}</p>
-        <button
-          className="appartment__details__bookNowBtn btn"
-          onClick={() => {
+        <AppartmentDetails
+          price={price}
+          maxpeople={maxpeople}
+          bedrooms={bedrooms}
+          bathrooms={bathrooms}
+          amenities={amenities}
+          bookNowFunc={() => {
             dispatch(resetState());
             return setUi({ ...ui, bookNow: true });
           }}
-        >
-          Book Now
-        </button>
+        />
       </div>
     </div>
   );
