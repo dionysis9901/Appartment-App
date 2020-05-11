@@ -10,14 +10,20 @@
     border: none;
     background: none;
     cursor: pointer;
-    color: $base-color;
+    color: black;
     font-weight: 800;
+    outline: none;
+  }
+
+  &__deleteBtn:hover {
+    color: $base-color;
   }
   &__price {
     margin: 10px 30px;
 
     &__bold {
       font-weight: bold;
+      color: $base-color;
     }
   }
 
@@ -34,7 +40,7 @@
     &__dateEnd,
     &__guestInput {
       margin: 5px 0;
-      border: 1px solid rgb(151, 151, 151);
+      border: 1px solid rgb(252, 119, 119);
       border-radius: 2px;
       padding: 7px 2px;
     }

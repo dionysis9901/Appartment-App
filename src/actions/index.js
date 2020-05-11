@@ -1,5 +1,7 @@
+const GET_DATA = "GET_DATA"; //IMPORT THIS FROM ACTIONS TYPES FOLDER
+
 export const getData = () => ({
-  type: "GET_DATA",
+  type: GET_DATA,
 });
 
 export const getDataSuccess = (data) => ({

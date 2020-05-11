@@ -22,7 +22,9 @@ const Appartment = ({
   maxpeople,
   nid,
 }) => {
+
   const dispatch = useDispatch();
+
   const formated = (date) => date.toISOString().slice(0, 10).replace(/-/g, "");
 
   const [ui, setUi] = useState({
@@ -45,16 +47,15 @@ const Appartment = ({
           You have successfully booked:{title}
         </p>
         <p className="appartment__checkIn">
-          Check-in:
-          <Moment format="YYYY/MM/DD">{ui.startDate}</Moment>
+          Check-in: <Moment format="YYYY/MM/DD">{ui.startDate}</Moment>
         </p>
         <p className="appartment__checkOut">
-          Check-out:
-          <Moment format="YYYY/MM/DD">{ui.endDate}</Moment>
+          Check-out: <Moment format="YYYY/MM/DD">{ui.endDate}</Moment>
         </p>
       </div>
     );
   }
+  
   if (ui.bookNow) {
     return (
       <BookNow

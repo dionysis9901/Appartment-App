@@ -8,6 +8,7 @@ const initialState = {
   nights: null,
   isRendered: false,
 };
+//IMPORT ACTION TYPES INSTEAD OF "GET_DATA" >> GET_DATA WHICH IS IMPORTED
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
