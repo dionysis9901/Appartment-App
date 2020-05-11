@@ -1,5 +1,5 @@
-import { switchMap, catchError } from "rxjs/operators";
 import { ofType } from "redux-observable";
+import { switchMap, catchError } from "rxjs/operators";
 import { proxy, apiList, priceApi } from "./config";
 
 import {

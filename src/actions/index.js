@@ -1,34 +1,36 @@
-const GET_DATA = "GET_DATA"; //IMPORT THIS FROM ACTIONS TYPES FOLDER
+import {
+  GET_DATA,
+  GET_DATA_SUCCESS,
+  GET_DATA_FAILED,
+  GET_AVAILABLE,
+  GET_AVAILABLE__SUCCESS,
+  GET_AVAILABLE_FAILED,
+  RESET_STATE,
+} from "./actionTypes";
 
-export const getData = () => ({
-  type: GET_DATA,
-});
+import {
+  getData,
+  getDataSuccess,
+  getDataFailed,
+  getAvailable,
+  getAvailableSuccess,
+  getAvailableFailed,
+  resetState,
+} from "./actions.js";
 
-export const getDataSuccess = (data) => ({
-  type: "GET_DATA_SUCCESS",
-  payload: { data },
-});
-
-export const getDataFailed = (message) => ({
-  type: "GET_DATA_FAILED",
-  payload: { message },
-});
-
-export const getAvailable = (nid, startD, endD, guests) => ({
-  type: "GET_AVAILABLE",
-  payload: { nid, startD, endD, guests },
-});
-
-export const getAvailableSuccess = (info) => ({
-  type: "GET_AVAILABLE__SUCCESS",
-  payload: { info },
-});
-
-export const getAvailableFailed = (message) => ({
-  type: "GET_AVAILABLE_FAILED",
-  payload: { message },
-});
-
-export const resetState = () => ({
-  type: "RESET_STATE",
-});
+export {
+  GET_DATA,
+  GET_DATA_SUCCESS,
+  GET_DATA_FAILED,
+  GET_AVAILABLE,
+  GET_AVAILABLE__SUCCESS,
+  GET_AVAILABLE_FAILED,
+  RESET_STATE,
+  getData,
+  getDataSuccess,
+  getDataFailed,
+  getAvailable,
+  getAvailableSuccess,
+  getAvailableFailed,
+  resetState,
+};

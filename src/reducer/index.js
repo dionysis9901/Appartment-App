@@ -1,3 +1,23 @@
+import {
+  GET_DATA,
+  GET_DATA_SUCCESS,
+  GET_DATA_FAILED,
+  GET_AVAILABLE,
+  GET_AVAILABLE__SUCCESS,
+  GET_AVAILABLE_FAILED,
+  RESET_STATE,
+} from "../actions";
+
+import {
+  getData,
+  getDataSuccess,
+  getDataFailed,
+  getAvailable,
+  getAvailableSuccess,
+  getAvailableFailed,
+  resetState,
+} from "../actions";
+
 const initialState = {
   postsData: null,
   originalPrice: null,
@@ -8,27 +28,26 @@ const initialState = {
   nights: null,
   isRendered: false,
 };
-//IMPORT ACTION TYPES INSTEAD OF "GET_DATA" >> GET_DATA WHICH IS IMPORTED
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case "GET_DATA":
+    case GET_DATA:
       return {
         ...state,
       };
 
-    case "GET_DATA_SUCCESS":
+    case GET_DATA_SUCCESS:
       return {
         ...state,
         postsData: payload.data,
       };
 
-    case "GET_DATA_FAILED":
+    case GET_DATA_FAILED:
       return {
         ...state,
       };
 
-    case "GET_AVAILABLE":
+    case GET_AVAILABLE:
       return {
         ...state,
         originalPrice: null,
@@ -40,7 +59,7 @@ const reducer = (state = initialState, { type, payload }) => {
         isRendered: false,
       };
 
-    case "GET_AVAILABLE__SUCCESS":
+    case GET_AVAILABLE__SUCCESS:
       return {
         ...state,
         originalPrice: payload.info.total_price_original,
@@ -52,12 +71,12 @@ const reducer = (state = initialState, { type, payload }) => {
         isRendered: true,
       };
 
-    case "GET_AVAILABLE__FAILED":
+    case GET_AVAILABLE_FAILED:
       return {
         ...state,
       };
 
-    case "RESET_STATE":
+    case RESET_STATE:
       return {
         ...state,
         originalPrice: null,
